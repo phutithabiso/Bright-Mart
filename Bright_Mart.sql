@@ -317,9 +317,26 @@ FROM order_items
 group by orders.order_id
 having sum(order_items.quantity * order_items.unit_price) > 500
 
+--limit the results to the top 5 most expensive products in the products table.
+SELECT product_name, price
+FROM products
+ORDER BY price DESC
+LIMIT 5;
 
+--offset the results to skip the first 5 products and retrieve the next 5 products in the products table.
+SELECT product_name, price
+FROM products
+ORDER BY product_id
+LIMIT 5 OFFSET 5;
 
+create table practice_notes (
+    note_id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    note_text TEXT NOT NULL
+);
+INSERT INTO practice_notes (note_text)
+VALUES('having  by filtering grouped results');
 
+SELECT * FROM practice_notes;
 
-
+DROP TABLE practice_notes;
 
