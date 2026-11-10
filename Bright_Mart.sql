@@ -1,4 +1,5 @@
 CREATE DATABASE brightmart;
+--Create customers table
 CREATE TABLE customers (
     customer_id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     first_name VARCHAR(50) NOT NULL,
@@ -7,6 +8,7 @@ CREATE TABLE customers (
     phone VARCHAR(20),
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
+--Create products table
 CREATE TABLE products(
     product_id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     product_name VARCHAR(100) NOT NULL,
@@ -15,6 +17,7 @@ CREATE TABLE products(
     stock_quantity INTEGER NOT NULL,
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
+--Create orders table
  create Table orders(
     order_id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     customer_id INTEGER NOT NULL,
@@ -26,6 +29,7 @@ CREATE TABLE products(
     Constraint fk_order_status
     Check (status IN ('Pending', 'Processing', 'Shipped', 'Delivered', 'Cancelled'))
  );
+ --Create order_items table
   CREATE TABLE order_items(
     order_item_id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     order_id INTEGER NOT NULL,
@@ -41,6 +45,7 @@ CREATE TABLE products(
     REFERENCES products(product_id),
     CONSTRAINT  uq_order_product UNIQUE(order_id, product_id)
   );
+
 
 select * from customers;
 
