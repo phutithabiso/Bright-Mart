@@ -207,3 +207,25 @@ FROM customers AS c
 RIGHT JOIN orders AS o
     ON c.customer_id = o.customer_id
 ORDER BY o.order_id;
+
+-- the current  value of the stock quantity for a specific product, such as the "USB-C Cable."
+SELECT product_id, product_name, price
+FROM products
+WHERE product_name = 'USB-C Cable';
+
+-- update the price of the "USB-C Cable" to a new value, such as 109.50.
+UPDATE products
+SET price = 109.50
+WHERE product_name = 'USB-C Cable';
+
+-- verify that the price has been updated by retrieving the product name and price again.
+SELECT product_name, price
+FROM products
+WHERE product_name = 'USB-C Cable';
+
+--correct the stock quantity for the "USB-C Cable" to a new value, such as 45.
+UPDATE products
+SET
+    stock_quantity = 45,
+    description = 'One metre USB-C charging and data cable'
+WHERE product_name = 'USB-C Cable';
