@@ -289,3 +289,11 @@ FROM products;
 SELECT MIN(price) AS lowest_price,
  MAX(price) AS highest_price
 FROM products;
+
+-- group by order_id to calculate the total amount for each order by multiplying the quantity of each order item by its unit price and summing the results for each order.
+SELECT order_id,
+ SUM (oi.quantity * oi.unit_price) AS order_total
+FROM order_items AS oi
+GROUP BY order_id
+ORDER BY order_total DESC;
+
