@@ -241,6 +241,8 @@ RENAME COLUMN phone TO phone_number;
 Alter TABLE customers
 ALTER COLUMN citys TYPE VARCHAR(100);
 
+--alter the "city" column to allow NULL values, as not all customers may have a city specified.
 ALTER TABLE customers
 DROP COLUMN citys;
+
 
