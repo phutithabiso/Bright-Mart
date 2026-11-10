@@ -265,6 +265,18 @@ COMMIT;
 ---If we want to undo the changes made in the transaction, we can use the ROLLBACK statement to revert the database to its previous state.
 ROLLBACK;
 
+--sum of all sales made by multiplying the quantity of each order item by its unit price and summing the results.
+SELECT
+    SUM(oi.quantity * oi.unit_price) AS total_sales
+FROM order_items AS oi
 
+--average price of all products in the products table.
+SELECT
+    AVG(price) AS average_price
+FROM products;
 
+---average price of all products in the products table rounded to two decimal places.
+SELECT
+    ROUND(AVG(price), 2) AS average_price
+FROM products;
 
