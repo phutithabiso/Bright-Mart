@@ -136,3 +136,18 @@ WHERE status IN ('Delivered', 'Shipped');
 SELECT product_name, price
 FROM products
 WHERE price BETWEEN 100 AND 500;
+
+-- the manager wants to see all products sorted by price in descending order.
+SELECT product_name, price
+FROM products
+ORDER BY price DESC;
+
+-- the manager wants to see all products sorted by name in ascending order.
+SELECT product_name, price
+FROM products
+ORDER BY product_name ASC;
+--- the manager wants to see all products sorted by stock quantity in ascending order and then by price in descending order.
+SELECT product_name, stock_quantity, price
+FROM products
+ORDER BY stock_quantity ASC, price DESC;
+
