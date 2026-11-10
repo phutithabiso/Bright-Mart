@@ -111,3 +111,8 @@ FROM products
 Select product_name, price
 FROM products
 WHERE price > 200.00;
+
+SELECT product_name, price, stock_quantity
+FROM products
+Where price >100
+and stock_quantity >= 20;
