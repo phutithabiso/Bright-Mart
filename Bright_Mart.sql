@@ -280,3 +280,10 @@ SELECT
     ROUND(AVG(price), 2) AS average_price
 FROM products;
 
+---total number of customers in the customers table.
+SELECT COUNT(*) ASC total_customers
+FROM customers;
+
+---total number of products in the products table.
+SELECT COUNT(*) AS total_products
+FROM products;
