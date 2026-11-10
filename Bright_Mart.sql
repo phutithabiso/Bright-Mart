@@ -123,4 +123,16 @@ SELECT product_name
 FROM products
 WHERE product_name LIKE '%USB%';
 
-s
+SELECT product_name
+FROM products
+WHERE product_name ILIKE '%keyboard%';
+
+---The manager wants to see all orders that have been delivered or shipped.
+SELECT order_id, status
+FROM orders
+WHERE status IN ('Delivered', 'Shipped');
+
+---The manager wants to d products priced between R100 and R1000
+SELECT product_name, price
+FROM products
+WHERE price BETWEEN 100 AND 500;
