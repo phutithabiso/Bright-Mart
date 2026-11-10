@@ -92,8 +92,13 @@ VALUES
     (12, 1, 2, 249.99),
     (13, 2, 1, 899.00);
 
-
+--display all customers, products, orders, and order items
 SELECT * FROM customers;
 SELECT * FROM products;
 SELECT * FROM orders;
 SELECT * FROM order_items;
+
+--Retrieve only names and email addresses
+SELECT first_name, last_name, email
+FROM customers;
+
