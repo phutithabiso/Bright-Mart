@@ -102,3 +102,12 @@ SELECT * FROM order_items;
 SELECT first_name, last_name, email
 FROM customers;
 
+--Retrieve product names and prices 
+SELECT product_name AS product, 
+         price AS unit_price
+FROM products
+
+-- see products with a price greater than 200.00 
+Select product_name, price
+FROM products
+WHERE price > 200.00;
