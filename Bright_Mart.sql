@@ -309,6 +309,14 @@ INNER JOIN order_items AS oi ON o.order_id = oi.order_id
 GROUP BY c.customer_id, c.first_name, c.last_name
 ORDER BY total_spent DESC;
 
+--- group by order_id to calculate the total amount for each order and filter the results to only include orders with a total amount greater than 500.
+SELECT
+    orders.order_id,
+    sum(order_items.quantity * order_items.unit_price) AS total_amount
+FROM order_items
+group by orders.order_id
+having sum(order_items.quantity * order_items.unit_price) > 500
+
 
 
 
