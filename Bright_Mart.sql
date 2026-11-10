@@ -229,3 +229,18 @@ SET
     stock_quantity = 45,
     description = 'One metre USB-C charging and data cable'
 WHERE product_name = 'USB-C Cable';
+
+--alter the customer table to add a new column for storing the city of each customer.
+Alter TABLE customers
+ADD COLUMN citys VARCHAR(100);
+--change the name of the column "phone" to "phone_number" in the customers table.
+ALTER TABLE customers
+RENAME COLUMN phone TO phone_number;
+
+---alter the data type of the "city" column to allow for longer city names, such as VARCHAR(100).
+Alter TABLE customers
+ALTER COLUMN citys TYPE VARCHAR(100);
+
+ALTER TABLE customers
+DROP COLUMN citys;
+
