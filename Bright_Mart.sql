@@ -112,7 +112,15 @@ Select product_name, price
 FROM products
 WHERE price > 200.00;
 
+--The manager wants products costing more than R100 and with at least 20 units in stock.
 SELECT product_name, price, stock_quantity
 FROM products
 Where price >100
 and stock_quantity >= 20;
+
+--A manager may want to find product names containing the word “USB
+SELECT product_name
+FROM products
+WHERE product_name LIKE '%USB%';
+
+s
