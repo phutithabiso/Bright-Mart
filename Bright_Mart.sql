@@ -151,3 +151,11 @@ SELECT product_name, stock_quantity, price
 FROM products
 ORDER BY stock_quantity ASC, price DESC;
 
+Select 
+    orders.order_id,
+    customers.first_name,
+    customers.last_name,
+    orders.status
+From orders
+INNER JOIN customers 
+ON orders.customer_id = customers.customer_id;  
