@@ -151,6 +151,7 @@ SELECT product_name, stock_quantity, price
 FROM products
 ORDER BY stock_quantity ASC, price DESC;
 
+--inner join to display order details along with customer names
 Select 
     orders.order_id,
     customers.first_name,
@@ -159,3 +160,32 @@ Select
 From orders
 INNER JOIN customers 
 ON orders.customer_id = customers.customer_id;  
+
+---inner join to display order details along with customer names
+Select 
+    o.order_id,
+    c.first_name,
+    c.last_name,
+    o.status
+FROM orders AS o
+INNER JOIN customers AS c
+ON o.customer_id = c.customer_id;
+
+---inner join to display order details along with customer names and product details
+SELECT 
+    o.order_id,
+    c.first_name,
+    p.product_name,
+    oi.quantity,
+    oi.unit_price
+From orders as o
+INNER JOIN customers AS c 
+ON o.customer_id  = c.customer_id
+INNER JOIN order_items AS oi
+ON o.order_id = oi.order_id
+INNER JOIN products AS p
+ON oi.product_id = p.product_id;
+
+
+
+
