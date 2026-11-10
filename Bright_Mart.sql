@@ -186,6 +186,15 @@ ON o.order_id = oi.order_id
 INNER JOIN products AS p
 ON oi.product_id = p.product_id;
 
-
+---left join to display all customers and their orders, including those without orders
+SELECT
+    c.customer_id,
+    c.first_name,
+    c.last_name,
+    o.order_id
+FROM customers AS c
+LEFT JOIN orders AS o
+    ON c.customer_id = o.customer_id
+ORDER BY c.customer_id;
 
 
