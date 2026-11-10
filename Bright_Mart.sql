@@ -197,4 +197,13 @@ LEFT JOIN orders AS o
     ON c.customer_id = o.customer_id
 ORDER BY c.customer_id;
 
-
+--right join to display all orders and their customers, including those without customers
+SELECT
+    c.customer_id,
+    c.first_name,
+    c.last_name,
+    o.order_id
+FROM customers AS c
+RIGHT JOIN orders AS o
+    ON c.customer_id = o.customer_id
+ORDER BY o.order_id;
