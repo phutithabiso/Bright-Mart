@@ -245,4 +245,26 @@ ALTER COLUMN citys TYPE VARCHAR(100);
 ALTER TABLE customers
 DROP COLUMN citys;
 
+-- we identify a specific customer by their email address, such as "daniel@example.com"
+SELECT customer_id, first_name, last_name, email
+FROM customers
+WHERE  email = 'test@example.com';
+
+-- we want to remove this customer from the database, we can use the DELETE statement to delete their record from the customers table.
+DELETE FROM customers
+WHERE email = 'sipho@example.com';
+
+--begin a transaction to update the price of the "USB-C Cable" and ensure that the change is atomic and can be rolled back if needed.
+BEGIN;
+---update the price of the "USB-C Cable" to a new value, such as 119.50.
+UPDATE products
+SET price = 119.50
+WHERE product_name = 'USB-C Cable';
+--If the update is successful, we can commit the transaction to make the changes permanent.
+COMMIT;
+---If we want to undo the changes made in the transaction, we can use the ROLLBACK statement to revert the database to its previous state.
+ROLLBACK;
+
+
+
 
